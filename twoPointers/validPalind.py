@@ -18,12 +18,12 @@ def isPalindrome(self, s: str) -> bool:
 # Solution 2
 
 
-def isPalindrome(self, s: str) -> bool:
+def isPalindrome(s: str) -> bool:
     i, j = 0, len(s) - 1
     while i < j:
-        while i < j and not self.alphanum(s[l]):
+        while i < j and not isAlphaNum(s[i]):
             i += 1
-        while i < j and not self.alphanum(s[r]):
+        while i < j and not isAlphaNum(s[j]):
             j -= 1
         if s[i].lower() != s[j].lower():
             return False
@@ -33,7 +33,7 @@ def isPalindrome(self, s: str) -> bool:
 # Could write own alpha-numeric function
 
 
-def alphanum(self, c):
+def isAlphaNum(c):
     return (
         ord("A") <= ord(c) <= ord("Z")
         or ord("a") <= ord(c) <= ord("z")
