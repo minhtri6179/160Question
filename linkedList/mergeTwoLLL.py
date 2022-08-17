@@ -26,3 +26,28 @@ def mergeTwoLists(list1, list2):
         head.next = list2
 
     return newList.next
+
+# Solution 2 Don't create a new branch list
+
+
+def mergeLinkedLists(headOne, headTwo):
+    p1, p2 = headOne, headTwo
+    pre = None
+    while p1 and p2:
+        if p1.value < p2.value:
+            pre = p1
+            p1 = p1.next
+        else:
+            if pre:
+                pre.next = p2
+            pre = p2
+            p2 = p2.next
+            pre.next = p1
+    if p1:
+        pre.next = p1
+    if p2:
+        pre.next = p2
+
+    if headOne.value < headTwo.value:
+        return headOne
+    return headTwo
